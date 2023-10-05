@@ -4,6 +4,11 @@
     margin: 0;
 }
 
+.links{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
 .header {
     padding: 20px;
@@ -58,8 +63,7 @@ color: white;
    
 }
 .navigation2 a{
-    display: flex;
-    flex-wrap: wrap;
+    float: left;
     justify-content: center;
     align-items: center;
    width: 100px;
@@ -82,15 +86,18 @@ color: white;
 }
 
 .navigation2 input[type=text] {
-  width: 240px;
-  border: none;
-  outline: none;
-  background: none;
-  font-size: 18px;
+    margin-left:auto;
+    margin-right:auto;
+    display: block;
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    font-size: 17px;
+    padding: 6px;
 }
 .navigation3 {
     overflow: hidden;
-
+float: right;
 }
 
 .navigation3 a {
@@ -101,6 +108,7 @@ color: white;
     padding: 14px 16px;
     text-decoration: none;
     font-size: 17px;
+    justify-content: space-between;
 }
 
 .navigation3 a:hover {
@@ -150,7 +158,6 @@ color: white;
 .navigation4 input[type=text] {
    display: flex;
    flex-wrap: wrap;
-   
     float: left;
     padding: 6px;
     border: ;
@@ -159,18 +166,19 @@ color: white;
 }
 .navigation5 {
     overflow: hidden;
-    display: center;
 }
 
 .navigation5 a {
-    margin-left:auto;
-    margin-right:auto;
-   width: 212px;
+    float: left;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
     display: block;
     color: black;
     text-align: center;
-    text-decoration: none;
+    padding: 14px 16px;
     font-size: 17px;
+    
 }
 
 .navigation5 a:hover {
@@ -194,6 +202,8 @@ color: white;
     font-size: 17px;
     padding: 6px;
     display: flex;
+  flex-wrap: wrap;
+  
 }
 .navigation6 {
     overflow: hidden;
