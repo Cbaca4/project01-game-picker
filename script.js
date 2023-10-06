@@ -1,108 +1,115 @@
-function toggleDropdown() {
-  var dropdownContent = document.getElementById("dropdownContent");
-  if (dropdownContent.style.display === "none" || dropdownContent.style.display === "") {
-      dropdownContent.style.display = "block";
-  } else {
-      dropdownContent.style.display = "none";
-  }
-}
+//this is for other project
+var spriteP = document.querySelector("#sprite");
+var namePoke = document.querySelector("#name");
+var typeEl1 = document.querySelector("#type");
+var typeEl2 = document.querySelector("#type2");
+//These are for displaying the dropdowns for moves
+var movesDis = document.querySelector("#moves");
+var movesDis2 = document.querySelector("#moves2");
+var movesDis3 = document.querySelector("#moves3");
+var movesDis4 = document.querySelector("#moves4");
+var name = "charizard";
 
-window.onclick = function(event) {
-  if (!event.target.matches('.button')) {
-      var dropdowns = document.getElementsByClassName("dropdown-content");
-      for (var i = 0; i < dropdowns.length; i++) {
-          var openDropdown = dropdowns[i];
-          if (openDropdown.style.display === "block") {
-              openDropdown.style.display = "none";
-          }
-      }
-  }
-}
+var steam = "https://pokeapi.co/api/v2/pokemon/" + name;
+fetch(steam).then(function (response) {
+    console.log(response);
+    return response.json();
+}).then(function (data) {
 
-function fetchPokemonStats(pokemonName) {
-  let apiUrl = `https://pokeapi.co/api/v2/pokemon/${pokemonName}`;
-  
-  fetch(apiUrl).then(response => {
-      if (!response.ok) {
-          throw new Error("Network response was not ok");
-      }
-      return response.json();
-  })
-  .then(data => {
-      // Clear existing stats
-      let tableBody = document.getElementById('statsTable').getElementsByTagName('tbody')[0];
-      tableBody.innerHTML = '';
-
-      // Populate table with new stats
-      data.stats.forEach(stat => {
-          let row = tableBody.insertRow();
-          let nameCell = row.insertCell(0);
-          let valueCell = row.insertCell(1);
-
-          nameCell.textContent = stat.stat.name;
-          valueCell.textContent = stat.base_stat;
-      });
-  })
-  .catch(error => {
-      console.error("There was a problem fetching the Pokémon stats:", error);
-  });
-}
-
-// ABILITIES TO PAY THA Biz-zil-LA-TIES
-
-function fetchPokemonStats(pokemonName) {
-  let apiUrl = `https://pokeapi.co/api/v2/pokemon/${pokemonName}`;
-  
-  fetch(apiUrl).then(response => {
-      if (!response.ok) {
-          throw new Error("Network response was not ok");
-      }
-      return response.json();
-  })
-  .then(data => {
-      populateStats(data.stats);
-      function populateAbilities(abilities) {
-        let abilitiesList = document.getElementById('abilitiesList');
-        abilitiesList.innerHTML = '';  // Clear existing abilities
-    
-        abilities.forEach(ability => {
-            let li = document.createElement('li');
-            li.textContent = ability.ability.name;
-            abilitiesList.appendChild(li);
-        });
+    namePoke.textContent = data.species.name;
+    var sprite1 = data.sprites.front_default;
+    spriteP.setAttribute("src", sprite1);
+    console.log(data);
+    var typeA = [];
+    var moveA = [];
+    // This gets the abilites for the
+    for (let i = 0; i < data.types.length; i++) {
+        var typeHold = data.types[i].type.name;
+        typeA.push(typeHold);
     }
+    console.log(typeA);
+    // This is for displaying the types
+    typeEl1.textContent = typeA[0];
+    typeEl2.textContent = typeA[1];
+
+    // This is for displaying the moves in the dropdowns
+    for (let i = 0; i < data.moves.length; i++) {
+        var movehold = data.moves[i].move.name;
+        moveA.push(movehold);  
+        var moveOpt = document.createElement('option');
+        var moveOpt2 = document.createElement('option');
+        var moveOpt3 = document.createElement('option');
+        var moveOpt4 = document.createElement('option');
+        moveOpt.textContent = movehold;
+        moveOpt2.textContent = movehold;
+        moveOpt3.textContent = movehold;
+        moveOpt4.textContent = movehold;
+        movesDis.appendChild(moveOpt);
+        movesDis2.appendChild(moveOpt2);
+        movesDis3.appendChild(moveOpt3);
+        movesDis4.appendChild(moveOpt4);
+    }
+
+});
+
+//this is for other project
+var steam = "https://pokeapi.co/api/v2/pokemon/ditto";
+fetch(steam).then(function (response) {
+    console.log(response);
+    return response.json();
+}).then(function (data) {
+
+    console.log(data);
+});
+
+//query selectors created 
+var searchOne = document.querySelector("#SearchOne");
+var searchTwo = document.querySelector("#SearchTwo");
+var searchThree = document.querySelector("#SearchThree");
+var searchFour = document.querySelector("#SearchFour");
+var searchFive = document.querySelector("#SearchFive");
+var searchSix = document.querySelector("#SearchSix");
+
+//functions created for each individual search bar
+function SearchOne() {
+
+}
+function SearchTwo() {
+
+}
+function SearchThree() {
     
-  })
-  .catch(error => {
-      console.error("There was a problem fetching the Pokémon stats:", error);
-  });
+}
+function SearchFour() {
+    
+}
+function SearchFive() {
+    
+}
+function SearchSix() {
+    
 }
 
-function populateStats(stats) {
-    // Clear existing stats for the selected Pokémon
-    let tableBody = document.getElementById('statsTable').querySelector('tbody');
-    tableBody.innerHTML = '';
 
-    // Populate table with new stats
-    stats.forEach(stat => {
-        let row = tableBody.insertRow();
-        let nameCell = row.insertCell(0);
-        let valueCell = row.insertCell(1);
+// added event listeners for each individual search bar
+searchOne.addEventListener("click", SearchOne);
+searchTwo.addEventListener("click", SearchTwo);
+searchThree.addEventListener("click",SearchThree);
+searchFour.addEventListener("click",SearchFour);
+searchFive.addEventListener("click",SearchFive);
+searchSix.addEventListener("click",SearchSix);
 
-        nameCell.textContent = stat.stat.name;
-        valueCell.textContent = stat.base_stat;
-    });
-}
+//a3ad744737f44a40b97cf278a3ecc34d
+//https://api.thenounproject.com
+//var weather = 
+//var iconUrl = `https://search.icons8.com/api/iconsets/v5/search?term=rain&token=lLLHXPzyOPDZ60L2t4uhS9gYbhcli9HrAXyNs3WU&amount=10`;
+//fetch(iconUrl).then(function (response) {
+//    console.log(response);
+//    return response.json();
+//}).then(function (data) {
+//    console.log(data);
 
-function populateAbilities(abilities) {
-    // Here we'll populate the abilities.
-    // For the sake of this example, I'm going to just log them.
-    // You can modify this to display the abilities in the way you prefer.
-    console.log('Abilities:', abilities.map(ability => ability.ability.name));
-}
-
-<!-- Section to display Pokémon abilities -->
-<h2 class="subtitle">Abilities</h2>
-<ul id="abilitiesList">
-    <!-- Abilities will be populated here -->
-</ul>
+ //   var icon = data.icons[1].id;
+ //   var test = "https://img.icons8.com/rain?id=" + icon + ".png";
+//    spriteP.setAttribute("src", test);
+//})
