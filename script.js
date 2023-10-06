@@ -10,6 +10,24 @@ var movesDis3 = document.querySelector("#moves3");
 var movesDis4 = document.querySelector("#moves4");
 var name = "charizard";
 
+// Section added for team tabs
+function teamNumber(evt, teamName) {
+    var i, tabcontent, tablinks;
+  
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = "none";
+    }
+  
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+
+    document.getElementById(teamName).style.display = "block";
+    evt.currentTarget.className += " active";
+  }
+
 var steam = "https://pokeapi.co/api/v2/pokemon/" + name;
 fetch(steam).then(function (response) {
     console.log(response);
