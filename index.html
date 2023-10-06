@@ -11,7 +11,29 @@
         <h1>Poke Team Deck</h1>
     </nav>
         
+      <!-- section added for tabs -->
+    <div class="tab">
+        <button class="tablinks" onclick="teamNumber(event, 'team 1')">Team 1</button>
+        <button class="tablinks" onclick="teamNumber(event, 'team 2')">Team 2</button>
+        <button class="tablinks" onclick="teamNumber(event, 'team 3')">Team 3</button>
+      </div>
+     
+      <div id="team 1" class="tabcontent">
+        <h3>Team 1</h3>
+        <p>This is the tab for team one.</p>
+      </div>
+      
+      <div id="team 2" class="tabcontent">
+        <h3>Team 2</h3>
+        <p>This is the tab for team two.</p>
+      </div>
+      
+      <div id="team 3" class="tabcontent">
+        <h3>Team 3</h3>
+        <p>This is the tab for team three.</p>
+      </div>
 
+      <!-- section added for search bars-->
     <div class="navigation">
         <a id= "searchOne" class="active" href="#home">Search</a>
         <input type="text" placeholder="I choose you..">
