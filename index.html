@@ -3,13 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css" />
-    <title>Document</title>
+    <title>Poke Team Deck</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+    <!-- Header -->
+    <nav class="header">
+        <h1>Poke Team Deck</h1>
+    </nav>
 
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="./script.js"></script>
+    <!-- Dropdown for selecting Pokémon -->
+    <div class="dropdown">
+        <button class="button" onclick="toggleDropdown()">Select Pokémon</button>
+        <div class="dropdown-content" id="dropdownContent">
+            <a href="#" onclick="fetchPokemonStats('ditto')">Ditto</a>
+            <a href="#" onclick="fetchPokemonStats('pikachu')">Pikachu</a>
+        </div>
+    </div>
+
+    <!-- Table to display Pokémon stats -->
+    <table class="table is-bordered is-striped" id="statsTable">
+        <thead>
+            <tr>
+                <th>Stat Name</th>
+                <th>Value</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Data will be populated here -->
+        </tbody>
+    </table>
+
+    <script src="script.js"></script>
 </body>
 </html>
