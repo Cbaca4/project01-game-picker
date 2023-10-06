@@ -8,7 +8,8 @@ var movesDis = document.querySelector("#moves");
 var movesDis2 = document.querySelector("#moves2");
 var movesDis3 = document.querySelector("#moves3");
 var movesDis4 = document.querySelector("#moves4");
-var name = "charizard";
+var iconEl = document.querySelector("#icon");
+var name = "glaceon";
 
 // Section added for team tabs
 function teamNumber(evt, teamName) {
@@ -26,7 +27,7 @@ function teamNumber(evt, teamName) {
 
     document.getElementById(teamName).style.display = "block";
     evt.currentTarget.className += " active";
-  }
+}
 
 var steam = "https://pokeapi.co/api/v2/pokemon/" + name;
 fetch(steam).then(function (response) {
@@ -44,6 +45,20 @@ fetch(steam).then(function (response) {
     for (let i = 0; i < data.types.length; i++) {
         var typeHold = data.types[i].type.name;
         typeA.push(typeHold);
+    }
+    for (let i = 0; i < typeA.length; i++) {
+        if (typeA[i] === "fire") {
+            getWeatherIcon("sun",iconEl);
+        }
+         if ( typeA[i] === "water")  {
+            getWeatherIcon("rain",iconEl)
+        } 
+        if ( typeA[i] === "rock") {
+            getWeatherIcon("dust",iconEl)
+        }
+        if ( typeA[i] === "ice") {
+            getWeatherIcon("hail",iconEl)
+        }
     }
     console.log(typeA);
     // This is for displaying the types
@@ -70,15 +85,6 @@ fetch(steam).then(function (response) {
 
 });
 
-//this is for other project
-var steam = "https://pokeapi.co/api/v2/pokemon/ditto";
-fetch(steam).then(function (response) {
-    console.log(response);
-    return response.json();
-}).then(function (data) {
-
-    console.log(data);
-});
 
 //query selectors created 
 var searchOne = document.querySelector("#SearchOne");
@@ -110,23 +116,23 @@ function SearchSix() {
 
 
 // added event listeners for each individual search bar
-searchOne.addEventListener("click", SearchOne);
-searchTwo.addEventListener("click", SearchTwo);
-searchThree.addEventListener("click",SearchThree);
-searchFour.addEventListener("click",SearchFour);
-searchFive.addEventListener("click",SearchFive);
-searchSix.addEventListener("click",SearchSix);
+//searchOne.addEventListener("click", SearchOne);
+//searchTwo.addEventListener("click", SearchTwo);
+//searchThree.addEventListener("click",SearchThree);
+//searchFour.addEventListener("click",SearchFour);
+//searchFive.addEventListener("click",SearchFive);
+//searchSix.addEventListener("click",SearchSix);
 
+function getWeatherIcon(weather,location) {
+    var iconUrl = `https://search.icons8.com/api/iconsets/v5/search?term=` + weather + `&token=lLLHXPzyOPDZ60L2t4uhS9gYbhcli9HrAXyNs3WU&amount=10`;
+    fetch(iconUrl).then(function (response) {
+        console.log(response);
+        return response.json();
+    }).then(function (data) {
+        console.log(data);
 
-var weather = "sunny"
-var iconUrl = `https://search.icons8.com/api/iconsets/v5/search?term=rain&token=lLLHXPzyOPDZ60L2t4uhS9gYbhcli9HrAXyNs3WU&amount=10`;
-fetch(iconUrl).then(function (response) {
-    console.log(response);
-    return response.json();
-}).then(function (data) {
-    console.log(data);
-
-    var icon = data.icons[1].id;
-    var test = "https://img.icons8.com/rain?id=" + icon + ".png";
-    spriteP.setAttribute("src", test);
-})
+        var icon = data.icons[0].id;
+        var test = "https://img.icons8.com/" + weather + "?icon_id=" + icon + ".png";
+        location.setAttribute("src", test);
+    })
+}
