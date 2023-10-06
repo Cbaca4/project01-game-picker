@@ -99,17 +99,16 @@ searchFour.addEventListener("click",SearchFour);
 searchFive.addEventListener("click",SearchFive);
 searchSix.addEventListener("click",SearchSix);
 
-//a3ad744737f44a40b97cf278a3ecc34d
-//https://api.thenounproject.com
-//var weather = 
-//var iconUrl = `https://search.icons8.com/api/iconsets/v5/search?term=rain&token=lLLHXPzyOPDZ60L2t4uhS9gYbhcli9HrAXyNs3WU&amount=10`;
-//fetch(iconUrl).then(function (response) {
-//    console.log(response);
-//    return response.json();
-//}).then(function (data) {
-//    console.log(data);
 
- //   var icon = data.icons[1].id;
- //   var test = "https://img.icons8.com/rain?id=" + icon + ".png";
-//    spriteP.setAttribute("src", test);
-//})
+var weather = "sunny"
+var iconUrl = `https://search.icons8.com/api/iconsets/v5/search?term=rain&token=lLLHXPzyOPDZ60L2t4uhS9gYbhcli9HrAXyNs3WU&amount=10`;
+fetch(iconUrl).then(function (response) {
+    console.log(response);
+    return response.json();
+}).then(function (data) {
+    console.log(data);
+
+    var icon = data.icons[1].id;
+    var test = "https://img.icons8.com/rain?id=" + icon + ".png";
+    spriteP.setAttribute("src", test);
+})
