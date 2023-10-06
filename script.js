@@ -51,3 +51,65 @@ fetch(steam).then(function (response) {
     }
 
 });
+
+//this is for other project
+var steam = "https://pokeapi.co/api/v2/pokemon/ditto";
+fetch(steam).then(function (response) {
+    console.log(response);
+    return response.json();
+}).then(function (data) {
+
+    console.log(data);
+});
+
+//query selectors created 
+var searchOne = document.querySelector("#SearchOne");
+var searchTwo = document.querySelector("#SearchTwo");
+var searchThree = document.querySelector("#SearchThree");
+var searchFour = document.querySelector("#SearchFour");
+var searchFive = document.querySelector("#SearchFive");
+var searchSix = document.querySelector("#SearchSix");
+
+//functions created for each individual search bar
+function SearchOne() {
+
+}
+function SearchTwo() {
+
+}
+function SearchThree() {
+    
+}
+function SearchFour() {
+    
+}
+function SearchFive() {
+    
+}
+function SearchSix() {
+    
+}
+
+
+// added event listeners for each individual search bar
+searchOne.addEventListener("click", SearchOne);
+searchTwo.addEventListener("click", SearchTwo);
+searchThree.addEventListener("click",SearchThree);
+searchFour.addEventListener("click",SearchFour);
+searchFive.addEventListener("click",SearchFive);
+searchSix.addEventListener("click",SearchSix);
+
+//a3ad744737f44a40b97cf278a3ecc34d
+//https://api.thenounproject.com
+//var weather = 
+//var iconUrl = `https://search.icons8.com/api/iconsets/v5/search?term=rain&token=lLLHXPzyOPDZ60L2t4uhS9gYbhcli9HrAXyNs3WU&amount=10`;
+//fetch(iconUrl).then(function (response) {
+//    console.log(response);
+//    return response.json();
+//}).then(function (data) {
+//    console.log(data);
+
+ //   var icon = data.icons[1].id;
+ //   var test = "https://img.icons8.com/rain?id=" + icon + ".png";
+//    spriteP.setAttribute("src", test);
+//})
