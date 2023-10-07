@@ -10,6 +10,13 @@ var movesDis3 = document.querySelector("#moves3");
 var movesDis4 = document.querySelector("#moves4");
 var name = "charizard";
 
+var abilel1 = document.querySelector("#abilities1");
+var hp1 = document.querySelector("#hp");
+var at1 = document.querySelector("#at");
+var de1 = document.querySelector("#de");
+var sa1= document.querySelector("#sa");
+var sd1 = document.querySelector("#sd");
+var sp1 = document.querySelector("#sp");
 // Section added for team tabs
 function teamNumber(evt, teamName) {
     var i, tabcontent, tablinks;
@@ -67,7 +74,20 @@ fetch(steam).then(function (response) {
         movesDis3.appendChild(moveOpt3);
         movesDis4.appendChild(moveOpt4);
     }
-
+    var abilitiesA = [];
+    for (let i = 0; i < data.abilities.length; i++) {
+        var a1 = data.abilities[i].ability.name;
+        abilitiesA.push(a1);
+        var aOpt = document.createElement('option');
+        aOpt.textContent = a1;       
+        abilel1.appendChild(aOpt);
+    }
+    hp1.textContent = data.stats[0].base_stat;
+    at1.textContent = data.stats[1].base_stat;
+    de1.textContent = data.stats[2].base_stat;
+    sa1.textContent = data.stats[3].base_stat;
+    sd1.textContent = data.stats[4].base_stat;
+    sp1.textContent = data.stats[5].base_stat;
 });
 
 //this is for other project
