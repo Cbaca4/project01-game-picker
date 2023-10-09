@@ -132,6 +132,8 @@ function teamNumber(evt, teamName) {
 
     document.getElementById(teamName).style.display = "block";
     evt.currentTarget.className += " active";
+
+   getLocal(evt, getTab);
 }
 
 function saveTab() {
@@ -146,8 +148,28 @@ function saveTab() {
     }
 }
 
-function saveLocal() {
+function saveLocal(saveA) {
+    saveA.push(namePoke);
+    saveA.push(namePoke1);
+    saveA.push(namePoke2);
+    saveA.push(namePoke3);
+    saveA.push(namePoke4);
+    saveA.push(namePoke5);
 
+    var store = JSON.stringify(saveA);
+    localStorage.setItem(getTab, store);
+}
+
+function getLocal(event, getTab) {
+    var getPoke = localStorage.getItem(getTab);
+    var createTab = JSON.parse(getPoke);
+
+    callFetch(event,nameOneEl,namePoke,spriteP,iconEl,typeEl1,typeEl2,movesDis,movesDis2,movesDis3,movesDis4,abilel1,hp1,at1,de1,sa1,sd1,sp1);
+    callFetch(event,nameOneEl2,namePoke1,spriteP1,iconEl2,typeEl3,typeEl4,movesDis5,movesDis6,movesDis7,movesDis8,abilel2,hp2,at2,de2,sa2,sd2,sp2);
+    callFetch(event,nameOneEl3,namePoke2,spriteP2,iconEl3,typeEl5,typeEl6,movesDis9,movesDis10,movesDis11,movesDis12,abilel3,hp3,at3,de3,sa3,sd3,sp3);
+    callFetch(event,nameOneEl4,namePoke3,spriteP3,iconEl4,typeEl7,typeEl8,movesDis13,movesDis14,movesDis15,movesDis16,abilel4,hp4,at4,de4,sa4,sd4,sp4);
+    callFetch(event,nameOneEl5,namePoke4,spriteP4,iconEl5,typeEl9,typeEl10,movesDis17,movesDis18,movesDis19,movesDis20,abilel5,hp5,at5,de5,sa5,sd5,sp5);
+    callFetch(event,nameOneEl6,namePoke5,spriteP5,iconEl6,typeEl11,typeEl12,movesDis21,movesDis22,movesDis23,movesDis24,abilel6,hp6,at6,de6,se6,sd6,sp6);
 }
 //query selectors created 
 var searchOne = document.querySelector("#searchOne");
