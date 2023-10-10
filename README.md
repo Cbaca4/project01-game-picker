@@ -13,8 +13,8 @@ Pokémon Team Manager is a hypothetical team-building application that allows Po
 ## Technologies Used
 •	HTML, CSS, JavaScript
 •	Bulma CSS Framework
-•	Pokémon API
-•	Icons8 API
+•	Pokémon API- https://pokeapi.co/
+•	Icons8 API- https://img.icons8.com/
 
 
 ## How to Use
