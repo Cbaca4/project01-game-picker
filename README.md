@@ -27,8 +27,8 @@ Pokémon Team Manager is a hypothetical team-building application that allows Po
 •	User account creation and management.
 
 ## Image of live webiste
-![this is a picture of the apllication](/images/Screenshot%20(84).png)
+![this is a picture of the apllication](./FinalP.PNG)
 
 ## Live Application Link
-[Link to apllication](https://cbaca4.github.io/project01-game-picker/)
+Link to apllication: https://cbaca4.github.io/project01-game-picker/
 
