@@ -14,14 +14,21 @@ Pokémon Team Manager is a hypothetical team-building application that allows Po
 •	HTML, CSS, JavaScript
 •	Bulma CSS Framework
 •	Pokémon API
+•	Icons8 API
+
 
 ## How to Use
 1.	Navigate to the Team Setup page.
 2.	Input your Pokémon to view their stats.
 3.	Save your team as a preset for future use.
-4.	Compare your team against others to see hypothetical battle outcomes.
 
 ## Future Enhancements
 •	Implement a full battle simulation based on Pokémon moves and types.
 •	User account creation and management.
+
+## Image of live webiste
+![this is a picture of the apllication](/images/Screenshot%20(84).png)
+
+## Live Application Link
+[Link to apllication](https://cbaca4.github.io/project01-game-picker/)
 

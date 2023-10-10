@@ -33,6 +33,7 @@
     padding: 6px 12px;
     border: 1px solid #ccc;
     border-top: none;
+    background-color: whitesmoke;
   }
 
 .links{
@@ -243,6 +244,11 @@ color: white;
     border: none;
     margin-top: 8px;
     font-size: 17px;
+}
+
+.savebttn {
+float: right;
+
 }
   
   
