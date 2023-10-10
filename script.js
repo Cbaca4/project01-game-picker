@@ -108,10 +108,10 @@ var de6 = document.querySelector("#de5");
 var sa6= document.querySelector("#sa5");
 var sd6 = document.querySelector("#sd5");
 var sp6 = document.querySelector("#sp5");
-
+//this is for saving info for the user
 var saveBtn = document.querySelector("#save")
 var getTab = "";
-
+//arrays for the storage of the names
 var tabSave1 = [];
 var tabSave2 = [];
 var tabSave3 = [];
@@ -135,7 +135,7 @@ function teamNumber(evt, teamName) {
 
    getLocal(evt, getTab);
 }
-
+// this makes sure the tab that is selcted is with the right array
 function saveTab() {
     if (getTab === "team 1") {
         saveLocal(tabSave1);
@@ -147,29 +147,43 @@ function saveTab() {
         saveLocal(tabSave3);
     }
 }
-
+// this saves the names to the local storage.
 function saveLocal(saveA) {
-    saveA.push(namePoke);
-    saveA.push(namePoke1);
-    saveA.push(namePoke2);
-    saveA.push(namePoke3);
-    saveA.push(namePoke4);
-    saveA.push(namePoke5);
-
+    saveA.push(namePoke.innerHTML);
+    saveA.push(namePoke1.innerHTML);
+    saveA.push(namePoke2.innerHTML);
+    saveA.push(namePoke3.innerHTML);
+    saveA.push(namePoke4.innerHTML);
+    saveA.push(namePoke5.innerHTML);
     var store = JSON.stringify(saveA);
     localStorage.setItem(getTab, store);
+    tabSave1 = [];
+    tabSave2 = [];
+    tabSave3 = [];
 }
-
+//This gets the arrays in local storage and calls to display them.
 function getLocal(event, getTab) {
     var getPoke = localStorage.getItem(getTab);
     var createTab = JSON.parse(getPoke);
-
-    callFetch(event,nameOneEl,namePoke,spriteP,iconEl,typeEl1,typeEl2,movesDis,movesDis2,movesDis3,movesDis4,abilel1,hp1,at1,de1,sa1,sd1,sp1);
-    callFetch(event,nameOneEl2,namePoke1,spriteP1,iconEl2,typeEl3,typeEl4,movesDis5,movesDis6,movesDis7,movesDis8,abilel2,hp2,at2,de2,sa2,sd2,sp2);
-    callFetch(event,nameOneEl3,namePoke2,spriteP2,iconEl3,typeEl5,typeEl6,movesDis9,movesDis10,movesDis11,movesDis12,abilel3,hp3,at3,de3,sa3,sd3,sp3);
-    callFetch(event,nameOneEl4,namePoke3,spriteP3,iconEl4,typeEl7,typeEl8,movesDis13,movesDis14,movesDis15,movesDis16,abilel4,hp4,at4,de4,sa4,sd4,sp4);
-    callFetch(event,nameOneEl5,namePoke4,spriteP4,iconEl5,typeEl9,typeEl10,movesDis17,movesDis18,movesDis19,movesDis20,abilel5,hp5,at5,de5,sa5,sd5,sp5);
-    callFetch(event,nameOneEl6,namePoke5,spriteP5,iconEl6,typeEl11,typeEl12,movesDis21,movesDis22,movesDis23,movesDis24,abilel6,hp6,at6,de6,se6,sd6,sp6);
+    var storePoke = "";
+    var storePoke2 = "";
+    var storePoke3 = "";
+    var storePoke4 = "";
+    var storePoke5 = "";
+    var storePoke6 = "";
+    storePoke = createTab[0];
+    storePoke2 = createTab[1];
+    storePoke3 = createTab[2];
+    storePoke4 = createTab[3];
+    storePoke5 = createTab[4];
+    storePoke6 = createTab[5];
+    console.log(createTab);
+    callHistory(event,storePoke,namePoke,spriteP,iconEl,typeEl1,typeEl2,movesDis,movesDis2,movesDis3,movesDis4,abilel1,hp1,at1,de1,sa1,sd1,sp1);
+    callHistory(event,storePoke2,namePoke1,spriteP1,iconEl2,typeEl3,typeEl4,movesDis5,movesDis6,movesDis7,movesDis8,abilel2,hp2,at2,de2,sa2,sd2,sp2);
+    callHistory(event,storePoke3,namePoke2,spriteP2,iconEl3,typeEl5,typeEl6,movesDis9,movesDis10,movesDis11,movesDis12,abilel3,hp3,at3,de3,sa3,sd3,sp3);
+    callHistory(event,storePoke4,namePoke3,spriteP3,iconEl4,typeEl7,typeEl8,movesDis13,movesDis14,movesDis15,movesDis16,abilel4,hp4,at4,de4,sa4,sd4,sp4);
+    callHistory(event,storePoke5,namePoke4,spriteP4,iconEl5,typeEl9,typeEl10,movesDis17,movesDis18,movesDis19,movesDis20,abilel5,hp5,at5,de5,sa5,sd5,sp5);
+    callHistory(event,storePoke6,namePoke5,spriteP5,iconEl6,typeEl11,typeEl12,movesDis21,movesDis22,movesDis23,movesDis24,abilel6,hp6,at6,de6,sa6,sd6,sp6);
 }
 //query selectors created 
 var searchOne = document.querySelector("#searchOne");
@@ -196,9 +210,9 @@ function SearchFive(event) {
     callFetch(event,nameOneEl5,namePoke4,spriteP4,iconEl5,typeEl9,typeEl10,movesDis17,movesDis18,movesDis19,movesDis20,abilel5,hp5,at5,de5,sa5,sd5,sp5);
 }
 function SearchSix(event) {
-    callFetch(event,nameOneEl6,namePoke5,spriteP5,iconEl6,typeEl11,typeEl12,movesDis21,movesDis22,movesDis23,movesDis24,abilel6,hp6,at6,de6,se6,sd6,sp6);
+    callFetch(event,nameOneEl6,namePoke5,spriteP5,iconEl6,typeEl11,typeEl12,movesDis21,movesDis22,movesDis23,movesDis24,abilel6,hp6,at6,de6,sa6,sd6,sp6);
 }
-
+// This fetches all the information the pokemon
 function callFetch(event,inputName,PokemonName,pokeS,getIcon,getType1,getType2,m1,m2,m3,m4,abil1,hp,at,de,sa,sd,sp) {
     event.preventDefault();
     var pokeCheck = inputName.value.trim();
@@ -265,17 +279,93 @@ function callFetch(event,inputName,PokemonName,pokeS,getIcon,getType1,getType2,m
             aOpt.textContent = a1;       
             abil1.appendChild(aOpt);
         }
-        hp.textContent = data.stats[0].base_stat;
-        at.textContent = data.stats[1].base_stat;
-        de.textContent = data.stats[2].base_stat;
-        sa.textContent = data.stats[3].base_stat;
-        sd.textContent = data.stats[4].base_stat;
-        sp.textContent = data.stats[5].base_stat;
+        hp.textContent = "Hitpoint:" + data.stats[0].base_stat;
+        at.textContent = "Attack:" + data.stats[1].base_stat;
+        de.textContent = "Defense:" + data.stats[2].base_stat;
+        sa.textContent = "Special Attack:" + data.stats[3].base_stat;
+        sd.textContent = "Special Defense:" + data.stats[4].base_stat;
+        sp.textContent = "Speed:" + data.stats[5].base_stat;
         
     });
     }
 }
+// this is for loading up a team that you saved.
+function callHistory(event,inputName,PokemonName,pokeS,getIcon,getType1,getType2,m1,m2,m3,m4,abil1,hp,at,de,sa,sd,sp) {
+    event.preventDefault();
+    var pokeCheck = inputName;
 
+    if (pokeCheck) {
+    var steam = "https://pokeapi.co/api/v2/pokemon/" + pokeCheck;
+    fetch(steam).then(function (response) {
+        console.log(response);
+        return response.json();
+    }).then(function (data) {
+    
+        PokemonName.textContent = data.species.name;
+        var sprite1 = data.sprites.front_default;
+        pokeS.setAttribute("src", sprite1);
+        console.log(data);
+        var typeA = [];
+        var moveA = [];
+        // This gets the abilites for the
+        for (let i = 0; i < data.types.length; i++) {
+            var typeHold = data.types[i].type.name;
+            typeA.push(typeHold);
+        }
+        for (let i = 0; i < typeA.length; i++) {
+            if (typeA[i] === "fire") {
+                //getWeatherIcon("sun",getIcon);
+            }
+             if ( typeA[i] === "water")  {
+                //getWeatherIcon("rain",getIcon)
+            } 
+            if ( typeA[i] === "rock") {
+                //getWeatherIcon("dust",getIcon)
+            }
+            if ( typeA[i] === "ice") {
+                //getWeatherIcon("hail",getIcon)
+            }
+        }
+
+        // This is for displaying the types
+        getType1.textContent = typeA[0];
+        getType2.textContent = typeA[1];
+    
+        // This is for displaying the moves in the dropdowns
+        for (let i = 0; i < data.moves.length; i++) {
+            var movehold = data.moves[i].move.name;
+            moveA.push(movehold);  
+            var moveOpt = document.createElement('option');
+            var moveOpt2 = document.createElement('option');
+            var moveOpt3 = document.createElement('option');
+            var moveOpt4 = document.createElement('option');
+            moveOpt.textContent = movehold;
+            moveOpt2.textContent = movehold;
+            moveOpt3.textContent = movehold;
+            moveOpt4.textContent = movehold;
+            m1.appendChild(moveOpt);
+            m2.appendChild(moveOpt2);
+            m3.appendChild(moveOpt3);
+            m4.appendChild(moveOpt4);
+        }
+        var abilitiesA = [];
+        for (let i = 0; i < data.abilities.length; i++) {
+            var a1 = data.abilities[i].ability.name;
+            abilitiesA.push(a1);
+            var aOpt = document.createElement('option');
+            aOpt.textContent = a1;       
+            abil1.appendChild(aOpt);
+        }
+        hp.textContent = "Hitpoint: " + data.stats[0].base_stat;
+        at.textContent = "Attack: " + data.stats[1].base_stat;
+        de.textContent = "Defense: " + data.stats[2].base_stat;
+        sa.textContent = "Special Attack: " + data.stats[3].base_stat;
+        sd.textContent = "Special Defense: " + data.stats[4].base_stat;
+        sp.textContent = "Speed: " + data.stats[5].base_stat;
+        
+    });
+    }
+}
 // added event listeners for each individual search bar
 searchOne.addEventListener("click", getSearchOne);
 searchTwo.addEventListener("click", SearchTwo);
