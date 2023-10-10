@@ -237,16 +237,16 @@ function callFetch(event,inputName,PokemonName,pokeS,getIcon,getType1,getType2,m
         }
         for (let i = 0; i < typeA.length; i++) {
             if (typeA[i] === "fire") {
-                //getWeatherIcon("sun",getIcon);
+                getWeatherIcon("sun",getIcon);
             }
              if ( typeA[i] === "water")  {
-                //getWeatherIcon("rain",getIcon)
+                getWeatherIcon("rain",getIcon)
             } 
             if ( typeA[i] === "rock") {
-                //getWeatherIcon("dust",getIcon)
+                getWeatherIcon("dust",getIcon)
             }
             if ( typeA[i] === "ice") {
-                //getWeatherIcon("hail",getIcon)
+                getWeatherIcon("hail",getIcon)
             }
         }
 
@@ -314,16 +314,16 @@ function callHistory(event,inputName,PokemonName,pokeS,getIcon,getType1,getType2
         }
         for (let i = 0; i < typeA.length; i++) {
             if (typeA[i] === "fire") {
-                //getWeatherIcon("sun",getIcon);
+                getWeatherIcon("sun",getIcon);
             }
              if ( typeA[i] === "water")  {
-                //getWeatherIcon("rain",getIcon)
+                getWeatherIcon("rain",getIcon)
             } 
             if ( typeA[i] === "rock") {
-                //getWeatherIcon("dust",getIcon)
+                getWeatherIcon("dust",getIcon)
             }
             if ( typeA[i] === "ice") {
-                //getWeatherIcon("hail",getIcon)
+                getWeatherIcon("hail",getIcon)
             }
         }
 
@@ -373,7 +373,7 @@ searchThree.addEventListener("click",SearchThree);
 searchFour.addEventListener("click",SearchFour);
 searchFive.addEventListener("click",SearchFive);
 searchSix.addEventListener("click",SearchSix);
-
+// This is for the save button
 saveBtn.addEventListener("click",saveTab);
 
 // This function gets the Icons from Icons8 and displaies them.
