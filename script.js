@@ -109,7 +109,7 @@ var sa6= document.querySelector("#sa5");
 var sd6 = document.querySelector("#sd5");
 var sp6 = document.querySelector("#sp5");
 //this is for saving info for the user
-var saveBtn = document.querySelector("#save")
+var saveBtn = document.querySelector("#save1");
 var getTab = "";
 //arrays for the storage of the names
 var tabSave1 = [];
@@ -171,6 +171,7 @@ function getLocal(event, getTab) {
     var storePoke4 = "";
     var storePoke5 = "";
     var storePoke6 = "";
+
     storePoke = createTab[0];
     storePoke2 = createTab[1];
     storePoke3 = createTab[2];
